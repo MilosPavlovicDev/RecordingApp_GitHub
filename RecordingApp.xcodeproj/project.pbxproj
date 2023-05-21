@@ -11,6 +11,8 @@
 		0BA9CBC52A1A5A0900B856E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9CBC42A1A5A0900B856E5 /* ContentView.swift */; };
 		0BA9CBC72A1A5A0A00B856E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA9CBC62A1A5A0A00B856E5 /* Assets.xcassets */; };
 		0BA9CBCA2A1A5A0A00B856E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA9CBC92A1A5A0A00B856E5 /* Preview Assets.xcassets */; };
+		0BA9CBD22A1A5A2100B856E5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA9CBD12A1A5A2100B856E5 /* MessageUI.framework */; };
+		280F2095184C0F2C513B0040 /* Pods_RecordingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9D6F802256E1C8BBE27B5B /* Pods_RecordingApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,11 @@
 		0BA9CBC42A1A5A0900B856E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BA9CBC62A1A5A0A00B856E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA9CBC92A1A5A0A00B856E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0BA9CBD12A1A5A2100B856E5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0BA9CBD32A1A5A2900B856E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1D9D6F802256E1C8BBE27B5B /* Pods_RecordingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecordingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8EB02084C998CE9FC74A22 /* Pods-RecordingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordingApp.release.xcconfig"; path = "Target Support Files/Pods-RecordingApp/Pods-RecordingApp.release.xcconfig"; sourceTree = "<group>"; };
+		F0DE14503EBF2BFCD4765D0A /* Pods-RecordingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordingApp.debug.xcconfig"; path = "Target Support Files/Pods-RecordingApp/Pods-RecordingApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BA9CBD22A1A5A2100B856E5 /* MessageUI.framework in Frameworks */,
+				280F2095184C0F2C513B0040 /* Pods_RecordingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +46,8 @@
 			children = (
 				0BA9CBC12A1A5A0900B856E5 /* RecordingApp */,
 				0BA9CBC02A1A5A0900B856E5 /* Products */,
+				0BA9CBD02A1A5A2000B856E5 /* Frameworks */,
+				7D0D55CB0D8188A384BADFDF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +62,7 @@
 		0BA9CBC12A1A5A0900B856E5 /* RecordingApp */ = {
 			isa = PBXGroup;
 			children = (
+				0BA9CBD32A1A5A2900B856E5 /* Info.plist */,
 				0BA9CBC22A1A5A0900B856E5 /* RecordingAppApp.swift */,
 				0BA9CBC42A1A5A0900B856E5 /* ContentView.swift */,
 				0BA9CBC62A1A5A0A00B856E5 /* Assets.xcassets */,
@@ -67,6 +79,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0BA9CBD02A1A5A2000B856E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BA9CBD12A1A5A2100B856E5 /* MessageUI.framework */,
+				1D9D6F802256E1C8BBE27B5B /* Pods_RecordingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D0D55CB0D8188A384BADFDF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0DE14503EBF2BFCD4765D0A /* Pods-RecordingApp.debug.xcconfig */,
+				3B8EB02084C998CE9FC74A22 /* Pods-RecordingApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BA9CBCD2A1A5A0A00B856E5 /* Build configuration list for PBXNativeTarget "RecordingApp" */;
 			buildPhases = (
+				C0E0BC0F729DCF6EECC45B66 /* [CP] Check Pods Manifest.lock */,
 				0BA9CBBB2A1A5A0900B856E5 /* Sources */,
 				0BA9CBBC2A1A5A0900B856E5 /* Frameworks */,
 				0BA9CBBD2A1A5A0900B856E5 /* Resources */,
+				0A9B195EB14DC7F4769896F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +164,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A9B195EB14DC7F4769896F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecordingApp/Pods-RecordingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecordingApp/Pods-RecordingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RecordingApp/Pods-RecordingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0E0BC0F729DCF6EECC45B66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RecordingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BA9CBBB2A1A5A0900B856E5 /* Sources */ = {
@@ -261,6 +336,7 @@
 		};
 		0BA9CBCE2A1A5A0A00B856E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0DE14503EBF2BFCD4765D0A /* Pods-RecordingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -270,6 +346,7 @@
 				DEVELOPMENT_TEAM = WSC3Z268YQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -290,6 +367,7 @@
 		};
 		0BA9CBCF2A1A5A0A00B856E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B8EB02084C998CE9FC74A22 /* Pods-RecordingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,6 +377,7 @@
 				DEVELOPMENT_TEAM = WSC3Z268YQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RecordingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
