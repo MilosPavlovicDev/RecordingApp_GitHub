@@ -47,13 +47,13 @@ struct MailComposer: UIViewControllerRepresentable {
             mailComposer.addAttachmentData(audioData, mimeType: "audio/wav", fileName: "recording.wav")
         }
         
-        mailComposer.setToRecipients(["viktor.pesic@aleos.digital"])
+        mailComposer.setToRecipients(["vpatricia@hiiiwav.org"])
         
         return mailComposer
     }
     
     func updateUIViewController(_ uiViewController: MFMailComposeViewController, context: Context) {
-        // Not used in this case
+        
     }
 }
 
@@ -69,7 +69,7 @@ struct ContentView: View {
             ZStack {
                 Text(transcribedText)
                     .font(.system(size: 1))
-                    .opacity(0) // Hide the text view behind the buttons
+                    .opacity(0)
                 
                 VStack {
                     Button(action: {
@@ -153,7 +153,7 @@ struct ContentView: View {
             return
         }
         
-        let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US")) // Set locale to English
+        let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
         
         if recognizer?.isAvailable ?? false {
             let request = SFSpeechURLRecognitionRequest(url: audioFilename)
@@ -179,7 +179,7 @@ struct ContentView: View {
                         }
                     }
                     
-                    // Update UserDefaults with the latest transcribed text
+            
                     UserDefaults.standard.set(self.transcribedText, forKey: "TranscribedText")
                 }
             }
@@ -189,8 +189,8 @@ struct ContentView: View {
     }
     
     func sendTranscriptionToSlack(transcription: String, audioFileURL: URL) {
-        let slackAuthToken = "xoxb-5300439913044-5297828297555-u0SBmqmmxOdFc1QalqqcpeiH"
-        let channelID = "general"
+        let slackAuthToken = "xoxb-33869562309-5304677261362-SJvssVdqbdIJULC6zfj5oITV"
+        let channelID = "voice-messages"
         
         let url = "https://slack.com/api/files.upload"
         let headers: HTTPHeaders = [
