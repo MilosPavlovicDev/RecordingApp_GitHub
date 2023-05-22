@@ -174,7 +174,7 @@ struct ContentView: View {
                             DispatchQueue.main.async {
                                 self.transcribedText = transcription
                                 self.showMailComposer = true
-                                sendTranscriptionToSlack(transcription: transcription)
+                                sendTranscriptionToSlack(transcription: transcription, audioFileURL: audioFilename)
                             }
                         }
                     }
@@ -188,26 +188,42 @@ struct ContentView: View {
         }
     }
     
-    func sendTranscriptionToSlack(transcription: String) {
-        let slackAuthToken = "xoxb-5300439913044-5297828297555-BtZTGIunAqbq3RB2G7FtWW96"
+    func sendTranscriptionToSlack(transcription: String, audioFileURL: URL) {
+        let slackAuthToken = "xoxb-5300439913044-5297828297555-u0SBmqmmxOdFc1QalqqcpeiH"
         let channelID = "general"
         
-        let url = "https://slack.com/api/chat.postMessage"
+        let url = "https://slack.com/api/files.upload"
         let headers: HTTPHeaders = [
-            "Content-Type": "application/x-www-form-urlencoded",
             "Authorization": "Bearer \(slackAuthToken)"
         ]
+        
         let parameters: Parameters = [
-            "channel": channelID,
-            "text": transcription
+            "channels": channelID,
+            "initial_comment": transcription
         ]
         
-        AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                if let audioData = try? Data(contentsOf: audioFileURL) {
+                    multipartFormData.append(audioData, withName: "file", fileName: "recording.wav", mimeType: "audio/wav")
+                }
+                
+                for (key, value) in parameters {
+                    if let data = "\(value)".data(using: .utf8) {
+                        multipartFormData.append(data, withName: key)
+                    }
+                }
+            },
+            to: url,
+            method: .post,
+            headers: headers
+        )
+        .responseJSON { response in
             switch response.result {
             case .success(let value):
-                print("Transcription sent to Slack: \(value)")
+                print("Transcription and audio file sent to Slack: \(value)")
             case .failure(let error):
-                print("Failed to send transcription to Slack: \(error)")
+                print("Failed to send transcription and audio file to Slack: \(error)")
             }
         }
     }
